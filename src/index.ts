@@ -1,11 +1,5 @@
-import { app } from 'hyperapp'
+import { app } from "hyperapp"
+import view from "./view"
+import { globalState, globalActions, GlobalState, GlobalActions } from "./modules"
 
-import view from './view'
-import { state, actions, State, Actions } from './modules'
-
-app<State, Actions>(
-  state,
-  actions,
-  view,
-  document.getElementById('app')
-)
+app<GlobalState, GlobalActions>(globalState, globalActions, view, document.getElementById("app"))

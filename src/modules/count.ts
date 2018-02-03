@@ -1,19 +1,25 @@
-import { ActionsType } from 'hyperapp'
+import { ActionsType } from "hyperapp"
 
+//
 // State
-export interface State {
+//
+
+export interface CounterState {
   count: number
 }
 
-export const state: State = {
-  count: 0
+export const counterState: CounterState = {
+  count: 0,
 }
 
+//
 // Actions
-export interface Actions {
-  change(value: number): State
+//
+
+export interface CounterActions {
+  change(value: number): CounterState
 }
 
-export const actions: ActionsType<State, Actions> = {
-  change: count => $state => ({ ...$state, count })
+export const counterActions: ActionsType<CounterState, CounterActions> = {
+  change: count => state => ({ ...state, count }),
 }

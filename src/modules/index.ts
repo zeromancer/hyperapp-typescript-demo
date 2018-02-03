@@ -1,21 +1,26 @@
-import { ActionsType } from 'hyperapp'
+import { ActionsType } from "hyperapp"
+import * as Count from "./count"
 
-import * as Count from './count'
-
+//
 // State
-export interface State {
-  count: Count.State
+//
+
+export interface GlobalState {
+  count: Count.CounterState
 }
 
-export const state: State = {
-  count: Count.state
+export const globalState: GlobalState = {
+  count: Count.counterState,
 }
 
+//
 // Actions
-export interface Actions {
-  count: Count.Actions
+//
+
+export interface GlobalActions {
+  count: Count.CounterActions
 }
 
-export const actions: ActionsType<State, Actions> = {
-  count: Count.actions
+export const globalActions: ActionsType<GlobalState, GlobalActions> = {
+  count: Count.counterActions,
 }
