@@ -1,20 +1,18 @@
-const path = require('path')
-
-const merge = require('webpack-merge')
-
-const commonConfig = require('./common.config')
+const path = require("path")
+const merge = require("webpack-merge")
+const commonConfig = require("./common.config")
 
 module.exports = merge(commonConfig, {
   module: {
     rules: [
       {
         test: /\.(s?css|sass)$/,
-        loaders: 'style-loader!css-loader?modules!sass-loader'
-      }
-    ]
+        loaders: "style-loader!css-loader?modules!sass-loader",
+      },
+    ],
   },
   devServer: {
-    historyApiFallback: true
+    historyApiFallback: true,
   },
-  devtool: '#inline-source-map'
+  devtool: "#inline-source-map",
 })

@@ -1,5 +1,5 @@
 import { h, Component, ActionResult } from "hyperapp"
-import styles from "./styles.scss"
+import styles from "./Counter.scss"
 
 interface CounterProps {
   count: number
