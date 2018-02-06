@@ -30,6 +30,10 @@
     "webpack-merge": "^4.1.1"
   },
   "dependencies": {
-    "hyperapp": "^0.18.3"
+    "bootstrap": "^4.0.0",
+    "hyperapp": "^0.18.3",
+    "jquery": "^3.3.1",
+    "normalize.css": "^7.0.0",
+    "popper.js": "^1.12.9"
   }
 }

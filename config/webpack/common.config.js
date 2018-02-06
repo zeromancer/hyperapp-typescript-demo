@@ -5,7 +5,7 @@ const envPlugin = new webpack.EnvironmentPlugin({
 })
 
 module.exports = {
-  entry: [path.resolve(__dirname, "../../src/app/index.ts")],
+  entry: [path.resolve(__dirname, "../../src/index.ts")],
   module: {
     rules: [
       {

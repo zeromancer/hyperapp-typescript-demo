@@ -17,14 +17,26 @@ interface IdActions {
 }
 
 const HeaderView: Component<TodoAppProps> = ({ state, actions }) => (
-  <header>
+  <div class="row">
     <h2>
       todo crud touch{" "}
       <a href="https://github.com/zeromancer/hyperapp-typescript-demo">
         <small>source</small>
       </a>
     </h2>
-  </header>
+    <div class="page-header" id="banner" />
+    <div class="container">
+      <div class="row">
+        <div class="col">1 of 2</div>
+        <div class="col">2 of 2</div>
+      </div>
+      <div class="row">
+        <div class="col">1 of 3</div>
+        <div class="col">2 of 3</div>
+        <div class="col">3 of 3</div>
+      </div>
+    </div>
+  </div>
 )
 
 const RemoveButton: Component<IdActions> = ({ id, actions }) => (
@@ -40,12 +52,12 @@ const ToggleButton: Component<IdActions> = ({ id, actions }) => (
 
 const TodoItem: Component<TodoProps> = ({ todo, actions }) => (
   <div class="row">
-    <div class="column column-15">
+    <div class="col">
       <RemoveButton id={todo.id} actions={actions} />
       <ToggleButton id={todo.id} actions={actions} />
     </div>
     <div
-      class={todo.done ? "done column column-85" : "column column-85"}
+      class={todo.done ? "col-8" : "col-8"}
       contenteditable
       data-uuid={todo.id}
       onkeyup={(e: KeyboardEvent) => (e.keyCode === 13 ? actions.editEnter() : null)}
