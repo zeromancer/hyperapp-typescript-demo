@@ -7,7 +7,17 @@ module.exports = merge(commonConfig, {
     rules: [
       {
         test: /\.(s?css|sass)$/,
-        loaders: "style-loader!css-loader?modules!sass-loader",
+        use: [
+          {
+            loader: "style-loader", // creates style nodes from JS strings
+          },
+          {
+            loader: "css-loader", // translates CSS into CommonJS
+          },
+          {
+            loader: "sass-loader", // compiles Sass to CSS
+          },
+        ],
       },
     ],
   },

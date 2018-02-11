@@ -17,47 +17,36 @@ interface IdActions {
 }
 
 const HeaderView: Component<TodoAppProps> = ({ state, actions }) => (
-  <div class="row">
-    <h2>
+  <div class="content">
+    <h1>todo</h1>
+    <h4>
       todo crud touch{" "}
       <a href="https://github.com/zeromancer/hyperapp-typescript-demo">
         <small>source</small>
       </a>
-    </h2>
-    <div class="page-header" id="banner" />
-    <div class="container">
-      <div class="row">
-        <div class="col">1 of 2</div>
-        <div class="col">2 of 2</div>
-      </div>
-      <div class="row">
-        <div class="col">1 of 3</div>
-        <div class="col">2 of 3</div>
-        <div class="col">3 of 3</div>
-      </div>
-    </div>
+    </h4>
   </div>
 )
 
 const RemoveButton: Component<IdActions> = ({ id, actions }) => (
-  <button class="button button-small button-outline" id={id} onclick={(e: HTMLButtonElement) => actions.remove(id)}>
+  <a class="button is-small is-danger is-outlined" id={id} onclick={(e: HTMLButtonElement) => actions.remove(id)}>
     x
-  </button>
+  </a>
 )
 const ToggleButton: Component<IdActions> = ({ id, actions }) => (
-  <button class="button button-small button-outline" id={id} onclick={(e: HTMLButtonElement) => actions.toggle(id)}>
+  <a class="button is-small is-primary is-outlined" id={id} onclick={(e: HTMLButtonElement) => actions.toggle(id)}>
     ✓
-  </button>
+  </a>
 )
 
 const TodoItem: Component<TodoProps> = ({ todo, actions }) => (
-  <div class="row">
-    <div class="col">
+  <div class="columns">
+    <div class="column is-narrow">
       <RemoveButton id={todo.id} actions={actions} />
       <ToggleButton id={todo.id} actions={actions} />
     </div>
     <div
-      class={todo.done ? "col-8" : "col-8"}
+      class="column"
       contenteditable
       data-uuid={todo.id}
       onkeyup={(e: KeyboardEvent) => (e.keyCode === 13 ? actions.editEnter() : null)}
@@ -74,15 +63,22 @@ const TodoListDone: Component<TodoAppProps> = ({ state, actions }) => (
 )
 
 const TodoInput: Component<TodoAppProps> = ({ state, actions }) => (
-  <div class="row">
-    <input
-      type="text"
-      onkeyup={(e: any) => (e.keyCode === 13 && e.target.value !== "" ? actions.add() : null)}
-      oninput={(e: any) => actions.input(e.target.value)}
-      value={state.input}
-      placeholder={state.placeholder}
-    />
-    <button onclick={(e: Event) => actions.add()}>add</button>
+  <div class="columns">
+    <div class="column is-narrow">
+      <a class="button is-info is-outlined" onclick={(e: Event) => actions.add()}>
+        +
+      </a>
+    </div>
+    <div class="column control">
+      <input
+        class="input"
+        type="text"
+        onkeyup={(e: any) => (e.keyCode === 13 && e.target.value !== "" ? actions.add() : null)}
+        oninput={(e: any) => actions.input(e.target.value)}
+        value={state.input}
+        placeholder={state.placeholder}
+      />
+    </div>
   </div>
 )
 
@@ -98,9 +94,11 @@ const TodoList: Component<TodoAppProps> = ({ state, actions }) => (
 )
 
 const StateDisplay: Component<TodoAppProps> = ({ state }) => (
-  <pre>
-    <code>{JSON.stringify(state, null, 2)}</code>
-  </pre>
+  <div class="control">
+    <pre>
+      <code>{JSON.stringify(state, null, 2)}</code>
+    </pre>
+  </div>
 )
 
 const TodoMain: Component<TodoAppProps> = ({ state, actions }) => (
