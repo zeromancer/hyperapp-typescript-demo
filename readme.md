@@ -1,5 +1,9 @@
 # hyperapp + typescript + scss + bulma example
 
+## Demo
+
+https://zeromancer.github.io/hyperapp-typescript-demo/public/index.html
+
 ## Instructions
 
 ```bash
