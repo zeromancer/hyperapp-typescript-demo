@@ -47,10 +47,22 @@ const TodoItem: Component<TodoProps> = ({ todo, actions }) => (
     </div>
     <div
       class="column"
-      contenteditable
       data-uuid={todo.id}
-      onkeyup={(e: KeyboardEvent) => (e.keyCode === 13 ? actions.editEnter() : null)}
+      onclick={(e: any) => {
+        if (!todo.done) {
+          e.target.contentEditable = true
+          e.target.focus()
+        }
+      }}
+      onkeydown={(e: any) => {
+        if (e.keyCode === 13) {
+          e.target.contentEditable = false
+          e.preventDefault()
+          e.target.blur()
+        }
+      }}
       oninput={(e: any) => (todo.value = e.target.textContent || "")}
+      onblur={(e: any) => actions.edit({ id: todo.id, value: e.target.textContent })}
     >
       {todo.value}
     </div>
@@ -84,12 +96,7 @@ const TodoInput: Component<TodoAppProps> = ({ state, actions }) => (
 
 const TodoList: Component<TodoAppProps> = ({ state, actions }) => (
   <div id="todo-list">
-    {state.todos
-      .filter(todo => {
-        console.error(todo)
-        return !todo.done
-      })
-      .map(todo => <TodoItem todo={todo} actions={actions} />)}
+    {state.todos.filter(todo => !todo.done).map(todo => <TodoItem todo={todo} actions={actions} />)}
   </div>
 )
 

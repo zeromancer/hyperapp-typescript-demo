@@ -1,21 +1,10 @@
-import { TodoAppState } from "./../modules/Todo"
-
-export const getStateFromStorage = () => {
-  const parsed = JSON.parse(window.localStorage.getItem("todoapp") || "")
-  if ((parsed as TodoAppState).todos !== null) {
-    return parsed
-  } else {
-    return undefined
-  }
-}
-export const storeStateInStorage = (state: any) => window.localStorage.setItem("todoapp", JSON.stringify(state))
-
 export function loadFromStorage<T>(key: string, defaultValue: T): T {
   try {
     const parsed = JSON.parse(window.localStorage.getItem(key) || "")
     if (parsed !== null && (parsed as T) !== null) {
       return parsed
     } else {
+      console.error("error loading from local storage", parsed)
       return defaultValue
     }
   } catch (e) {
@@ -24,6 +13,10 @@ export function loadFromStorage<T>(key: string, defaultValue: T): T {
 }
 
 export function saveToStorage<T>(key: string, value: T): T {
-  window.localStorage.setItem("todoapp", JSON.stringify(value))
+  try {
+    window.localStorage.setItem(key, JSON.stringify(value))
+  } catch (e) {
+    console.error("error saving to local storage", e)
+  }
   return value
 }

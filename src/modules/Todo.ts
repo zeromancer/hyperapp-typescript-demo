@@ -14,6 +14,11 @@ export interface TodoState {
   value: string
 }
 
+export interface TodoEditOperation {
+  id: string
+  value: string
+}
+
 export interface TodoAppState {
   input: string
   placeholder: string
@@ -40,8 +45,7 @@ export interface TodoActions {
   add(): TodoAppState
   remove(id: string): TodoAppState
   toggle(id: string): TodoAppState
-  edit(id: string, content: string): TodoAppState
-  editEnter(): TodoAppState
+  edit(t: TodoEditOperation): TodoAppState
 }
 
 export const todoActions: ActionsType<TodoAppState, TodoActions> = {
@@ -78,20 +82,16 @@ export const todoActions: ActionsType<TodoAppState, TodoActions> = {
             : t
       ),
     }),
-  edit: (id: string, content: string) => (state: TodoAppState) =>
+  edit: (todo: TodoEditOperation) => (state: TodoAppState) =>
     save({
       ...state,
       todos: state.todos.map(
         (t: TodoState) =>
-          id === t.id
+          todo.id === t.id
             ? Object.assign({}, t, {
-                value: content,
+                value: todo.value,
               })
             : t
       ),
-    }),
-  editEnter: (todo: TodoState) => (state: TodoAppState) =>
-    save({
-      ...state,
     }),
 }
