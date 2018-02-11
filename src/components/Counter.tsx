@@ -7,7 +7,7 @@ interface CounterProps {
 }
 
 const Counter: Component<CounterProps> = ({ count, onChange }: CounterProps) => (
-  <div class="controls">
+  <div>
     <div class="content">
       <h1>counter</h1>
       <h4>simples hyperapp example, without local storage</h4>
