@@ -1,5 +1,5 @@
 import { h, Component, ActionResult } from "hyperapp"
-import styles from "./Counter.scss"
+import "./Counter.scss"
 
 interface CounterProps {
   count: number
@@ -7,14 +7,24 @@ interface CounterProps {
 }
 
 const Counter: Component<CounterProps> = ({ count, onChange }: CounterProps) => (
-  <div class={styles.container}>
-    <a role="button" class={styles.button} onclick={() => onChange(count - 1)}>
-      -
-    </a>
-    <span class={styles.count}>{count}</span>
-    <a role="button" class={styles.button} onclick={() => onChange(count + 1)}>
-      +
-    </a>
+  <div class="controls">
+    <div class="content">
+      <h1>counter</h1>
+      <h4>simples hyperapp example, without local storage</h4>
+    </div>
+    <div class="columns">
+      <div class="control column">
+        <a class="button is-danger is-outlined" onclick={() => onChange(count - 1)}>
+          -1
+        </a>
+      </div>
+      <h1 class="column show_counter">{count}</h1>
+      <div class="control column">
+        <a class="button is-success is-outlined" onclick={() => onChange(count + 1)}>
+          +1
+        </a>
+      </div>
+    </div>
   </div>
 )
 

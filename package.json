@@ -10,7 +10,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "NODE_ENV=development webpack-dev-server --config ./config/webpack/webpack.config.js --content-base src --hot --host 0.0.0.0 --port 8080",
+    "start":
+      "NODE_ENV=development webpack-dev-server --config ./config/webpack/webpack.config.js --content-base src --hot --host 0.0.0.0 --port 8080",
     "compile": "NODE_ENV=production webpack --config ./config/webpack/webpack.config.js",
     "build": "npm run compile && cp src/index.html public/"
   },
@@ -30,7 +31,6 @@
     "webpack-merge": "^4.1.1"
   },
   "dependencies": {
-    "bootstrap": "^4.0.0",
     "bulma": "^0.6.2",
     "hyperapp": "^0.18.3",
     "jquery": "^3.3.1",
