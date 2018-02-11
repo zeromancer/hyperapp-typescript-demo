@@ -1,4 +1,4 @@
-# todo
+# hyperapp + typescript + scss + bulma example
 
 ## Instructions
 

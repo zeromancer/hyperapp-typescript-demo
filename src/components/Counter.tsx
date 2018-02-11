@@ -14,13 +14,13 @@ const Counter: Component<CounterProps> = ({ count, onChange }: CounterProps) => 
     </div>
     <div class="columns">
       <div class="control column">
-        <a class="button is-danger is-outlined" onclick={() => onChange(count - 1)}>
+        <a class="button is-danger is-large is-outlined" onclick={() => onChange(count - 1)}>
           -1
         </a>
       </div>
       <h1 class="column show_counter">{count}</h1>
       <div class="control column">
-        <a class="button is-success is-outlined" onclick={() => onChange(count + 1)}>
+        <a class="button is-success is-large is-outlined" onclick={() => onChange(count + 1)}>
           +1
         </a>
       </div>

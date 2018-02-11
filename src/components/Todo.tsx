@@ -19,12 +19,7 @@ interface IdActions {
 const HeaderView: Component<TodoAppProps> = ({ state, actions }) => (
   <div class="content">
     <h1>todo</h1>
-    <h4>
-      todo crud touch{" "}
-      <a href="https://github.com/zeromancer/hyperapp-typescript-demo">
-        <small>source</small>
-      </a>
-    </h4>
+    <h4>state saved even with browser refresh</h4>
   </div>
 )
 
