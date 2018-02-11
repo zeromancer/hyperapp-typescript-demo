@@ -1,11 +1,12 @@
 ////////////////////////////////////////////////
 // SLATE
 ////////////////////////////////////////////////
-$grey-lighter: #98a4ad;
-$grey-light:   #7A8288;
-$grey:         #52575C;
-$grey-dark:    #3A3F44;
-$grey-darker:  #272B30;
+$grey-lighter: #7a8288;
+$grey-light: #52575c;
+$grey: #3a3f44;
+$grey-dark: #272b30;
+$grey-darker: #121416;
+$grey-darkest: #121416;
 
 $orange: #f89406;
 $green: #62c462;
@@ -31,7 +32,7 @@ $title-color: #aaa;
 $subtitle-color: $grey-light;
 $subtitle-strong-color: $grey-light;
 
-$text: #aaa;
+$text: #d8d3d3;
 $text-light: lighten($text, 10);
 $text-strong: darken($text, 5);
 
@@ -45,7 +46,9 @@ $link-active-border: $link-focus-border;
 
 $button-color: #fafafa;
 
+$input-color: $text;
 $input-hover-color: $grey-light;
+$input-background-color: $grey-darker;
 $input-disabled-background-color: $grey-lighter;
 $input-disabled-border: $grey-lighter;
 $input-arrow: $primary;
