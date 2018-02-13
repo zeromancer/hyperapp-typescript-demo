@@ -5,8 +5,7 @@ import TodoMain from "./components/Todo"
 import "./styles/app.scss"
 
 const view: View<GlobalState, GlobalActions> = (state, actions) => (
-  // <div style={styles.container}>
-  <div id="global" class="section">
+  <div id="global">
     <section id="todo">
       <TodoMain state={state.todo} actions={actions.todo} />
     </section>
